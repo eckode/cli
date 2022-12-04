@@ -3,6 +3,7 @@
   "version": "0.0.2",
   "description": "CLI tool, written in TypeScript, for running @eckode scoped packages.",
   "keywords": [
+    "eckode",
     "webpack",
     "typescript",
     "JavaScript",
