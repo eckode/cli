@@ -1,6 +1,6 @@
 {
   "name": "@eckode/cli",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "CLI tool, written in TypeScript, for running @eckode scoped packages.",
   "keywords": [
     "eckode",
