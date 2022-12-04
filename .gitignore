@@ -5,6 +5,7 @@
 ._.*
 ._*
 *.log
+.package/
 
 # Ignore local editor
 .project
@@ -23,7 +24,7 @@ npm-debug.log
 # Dependency packages files
 node_modules/
 
-code-coverage/
-
 # Output
-dist/
+code-coverage/
+src/**/*.js
+src/**/*.mjs
