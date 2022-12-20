@@ -1,8 +1,7 @@
 import { resolve } from 'path';
 import { exit } from 'process';
-import chalk from 'chalk';
 
-import { spawnNodeProcess } from './utils.mjs';
+import { spawnNodeProcess, logger } from './utils.mjs';
 import nodeLocalVars from './node-env-vars.mjs';
 import { EckodeNpmScripts } from './types.js';
 
@@ -22,9 +21,7 @@ process.env.ECKO_PROJECT_PATH = process.cwd();
 process.env.ECKO_COMMAND = lifecycleEvent as EckodeNpmScripts;
 
 if (!eckodeNpmCommands.includes(process.env.ECKO_COMMAND)) {
-  console.log(
-    chalk.black.bgWhiteBright(`< ECKODE-CLI; /> ⛔ ${chalk.bold(process.env.ECKO_COMMAND)} command not found!`),
-  );
+  logger(`command not found!`, 'error', process.env.ECKO_COMMAND),
   exit(1);
 }
 
