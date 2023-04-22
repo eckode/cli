@@ -13,7 +13,7 @@ import { normalize } from 'path';
 // Local
 import { LoggerTypes, BgColors, Colors, SpawnNodeProcessArgs } from './types';
 import { spawnSync } from 'child_process';
-import rimraf from 'rimraf';
+import { rimraf } from 'rimraf';
 
 /**
  * Spawn Node Process to load one of the script commands.
@@ -156,13 +156,13 @@ export function logger(msg: string, type: keyof LoggerTypes = 'text', em: string
  * @uses rimraf
  * @since 0.0.1
  */
-export const rmRf = (src: string) =>
-  new Promise<string>((resolve, reject) => {
-    rimraf(src, (err) => {
-      if (err === null) {
-        logger(`${src} successfully removed`, 'success');
-        return resolve('Success');
-      }
-      return reject(new Error(`Error invoking rimraf for ${src}`));
-    });
-  });
+export const rmRf = async (src: string | string[]) => {
+  try {
+    await rimraf(src, { glob: true });
+  } catch (error) {
+    if (error instanceof Error) {
+      throw new Error(`Error invoking rimraf for ${src}, ${error.message}`);
+    }
+    throw new Error(`Error invoking rimraf for ${src}`);
+  }
+};
