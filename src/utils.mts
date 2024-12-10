@@ -11,9 +11,9 @@ import { exit } from 'process';
 import { existsSync } from 'fs';
 import { normalize } from 'path';
 // Local
-import { LoggerTypes, BgColors, Colors, SpawnNodeProcessArgs } from './types';
+import { LoggerTypes, BgColors, Colors, SpawnNodeProcessArgs } from './types.mjs';
 import { spawnSync } from 'child_process';
-import { rimraf } from 'rimraf';
+import { rimraf } from './deps/index.mjs';
 
 /**
  * Spawn Node Process to load one of the script commands.

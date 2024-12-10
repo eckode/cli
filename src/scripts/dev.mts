@@ -2,15 +2,15 @@
  * External dependencies
  */
 import { platform } from 'os';
-import { spawnSync } from 'child_process';
-import { sync as resolveBin } from 'resolve-bin';
 import { normalize } from 'path';
+import { spawnSync } from 'child_process';
+import { require } from '../deps/index.mjs';
 
 const { ECKO_SCOPED_PATH } = process.env;
 
 // @TODO Make args dynamic.
 const { status } = spawnSync(
-  resolveBin('webpack'),
+  require.resolve('webpack/bin/webpack.js'),
   ['serve', '--config', normalize(`${ECKO_SCOPED_PATH}/webpack/webpack/webpack.dev.mjs`)],
   {
     stdio: 'inherit',

@@ -3,7 +3,7 @@
  */
 import { platform } from 'os';
 import { spawnSync } from 'child_process';
-import { sync as resolveBin } from 'resolve-bin';
+import { require } from '../deps/index.mjs';
 
 const { ECKO_SCOPED_PATH } = process.env;
 
@@ -11,7 +11,7 @@ import { normalize } from 'path';
 
 // @TODO Make args dynamic.
 const { status } = spawnSync(
-  resolveBin('webpack'),
+  require.resolve('webpack/bin/webpack.js'),
   ['--config', normalize(`${ECKO_SCOPED_PATH}/webpack/webpack/webpack.prod.mjs`)],
   {
     stdio: 'inherit',
