@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/eckode/cli",
   "scripts": {
-    "build": "npm run clean && tsc",
+    "build": "tsc",
     "clean": "ts-node-esm ./src/clean.mjs",
     "pkg": "tsc && ts-node-esm ./src/package.mjs"
   },
